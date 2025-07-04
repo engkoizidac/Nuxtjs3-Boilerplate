@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
+/* @theme static {
   --font-sans: "Public Sans", sans-serif;
 
   --breakpoint-3xl: 1920px;
@@ -17,4 +17,4 @@
   --color-green-800: #016538;
   --color-green-900: #0a5331;
   --color-green-950: #052e16;
-}
+} */

@@ -1,11 +1,6 @@
-<script setup lang="ts">
-import { PlusCircleIcon } from "@heroicons/vue/16/solid";
-</script>
-
 <template>
-  <div>Hello Jobelle</div>
-  <UButton color="primary" icon-position="left">
-    <PlusCircleIcon class="w-5 h-5" />
-    Confirm
-  </UButton>
+  <div>
+    <h1 class="text-2xl font-bold mb-2">Home Page</h1>
+    <p>Welcome to the Nuxt UI app!</p>
+  </div>
 </template>
