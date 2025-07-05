@@ -1,11 +1,11 @@
 <template>
   <UApp>
-    <UContainer class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
-      <NavBar />
+    <div class="flex flex-col min-h-screen w-full bg-gray-50 dark:bg-gray-900">
+      <BaseNavigation />
 
-      <main class="flex-1 py-8">
+      <main class="flex-1 w-full px-4 py-8">
         <slot />
       </main>
-    </UContainer>
+    </div>
   </UApp>
 </template>

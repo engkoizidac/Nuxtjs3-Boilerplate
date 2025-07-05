@@ -38,26 +38,28 @@ const logoutItem = ref<NavigationMenuItem[]>([
 
 <template>
   <nav
-    class="flex items-center justify-center border-b border-default px-4 py-2 bg-white dark:bg-gray-900"
+    class="w-full flex items-center justify-between border-b border-default px-4 py-2 bg-white dark:bg-gray-900"
   >
-    <!-- Logo on the left -->
-    <NuxtLink to="/" class="flex items-center font-bold text-xl text-primary">
-      Engkoi<span class="text-amber-50">Zidac</span>
-    </NuxtLink>
+    <!-- Left: Logo -->
+    <div class="flex-1">
+      <NuxtLink to="/" class="flex items-center font-bold text-xl text-primary">
+        Engkoi<span class="text-amber-50">Zidac</span>
+      </NuxtLink>
+    </div>
 
-    <!-- Center menu -->
+    <!-- Center: Main menu -->
     <div class="flex-1 flex justify-center">
       <UNavigationMenu
         highlight
         highlight-color="primary"
         orientation="horizontal"
         :items="mainItems"
-        class="w-full flex justify-center"
+        class="w-full max-w-xl"
       />
     </div>
 
-    <!-- Logout on the right -->
-    <div class="flex justify-end">
+    <!-- Right: Logout -->
+    <div class="flex-1 flex justify-end">
       <UNavigationMenu
         orientation="horizontal"
         :items="logoutItem"
