@@ -18,6 +18,7 @@ const mainItems = ref<NavigationMenuItem[]>([
         label: "User",
         description: "User account management",
         icon: "i-lucide-circle-user",
+        to: "users/userAccounts",
       },
       {
         label: "Installation",
