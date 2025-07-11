@@ -1,8 +1,6 @@
+import { db } from "../utils/db";
 import { user } from "~/server/db/schema";
-import { drizzle } from "drizzle-orm/mysql2";
 import { eq } from "drizzle-orm";
-
-const db = drizzle(process.env.DATABASE_URL!);
 
 // Get all users
 export const getAllUsers = async () => {

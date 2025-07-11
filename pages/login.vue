@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/outline";
+import { useFetch } from "#app";
+
+const router = useRouter();
 
 const form = reactive({
   username: "",
@@ -8,6 +13,7 @@ const form = reactive({
 
 const loading = ref(false);
 const showPassword = ref(false);
+const errorMessage = ref("");
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
@@ -15,12 +21,25 @@ const togglePasswordVisibility = () => {
 
 const handleLogin = async () => {
   loading.value = true;
+  errorMessage.value = "";
+
   try {
-    console.log("Logging in with", form);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    alert("Login successful");
-  } catch (error) {
-    console.error(error);
+    const data = await $fetch("/api/auth/login", {
+      method: "POST",
+      body: form,
+      credentials: "include", // ✅ required to receive and send cookies
+    });
+
+    console.log("Login success:", data);
+    // Optional: store user info
+    // useAuthStore().setUser(data.user);
+    router.push("/dashboard");
+  } catch (err: any) {
+    console.error("Login failed:", err);
+    errorMessage.value =
+      err?.statusCode === 401
+        ? "Invalid username or password."
+        : "An error occurred. Please try again.";
   } finally {
     loading.value = false;
   }
@@ -107,6 +126,9 @@ const handleLogin = async () => {
           >
             Login
           </UButton>
+          <div v-if="errorMessage" class="text-red-600 text-sm text-center">
+            {{ errorMessage }}
+          </div>
         </div>
       </UForm>
     </UCard>

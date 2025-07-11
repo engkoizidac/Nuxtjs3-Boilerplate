@@ -7,8 +7,8 @@ const mainItems = ref<NavigationMenuItem[]>([
     to: "/",
   },
   {
-    label: "About",
-    to: "/about",
+    label: "Dashboard",
+    to: "/dashboard",
   },
 
   {
@@ -18,7 +18,7 @@ const mainItems = ref<NavigationMenuItem[]>([
         label: "User",
         description: "User account management",
         icon: "i-lucide-circle-user",
-        to: "users/userAccounts",
+        to: "/users/userAccounts",
       },
       {
         label: "Installation",
